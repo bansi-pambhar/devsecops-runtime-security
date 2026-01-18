@@ -1,0 +1,7 @@
+#Install TruffleHog
+pipx install trufflehog3
+trufflehog3 --help
+git init
+git add .
+git commit -m "Initial vulnerable commit"
+trufflehog3 filesystem .
