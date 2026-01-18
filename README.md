@@ -70,7 +70,7 @@ This architecture ensures **end-to-end security visibility** across the DevSecOp
 
 ---
 
-## Tools and Technologies
+## 5. Tools and Technologies
 
 | Category | Tool / Technology | Purpose |
 |--------|------------------|--------|
@@ -91,3 +91,14 @@ This architecture ensures **end-to-end security visibility** across the DevSecOp
 
 ---
 
+---
+## 6. Order of files
+1. Setup
+2. App
+3. Docker
+4. Trivy scanning
+5. Semgrep(SAST)
+6. Scretes Scanning
+7. k8s
+8. Falco-Runtime Security
+9. Monitoring and Alerts 
