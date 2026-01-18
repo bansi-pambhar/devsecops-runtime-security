@@ -29,3 +29,9 @@ def home():
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
+
+
+#Run app.py file
+python app.py
+
+#Running this file will provide the URL 
