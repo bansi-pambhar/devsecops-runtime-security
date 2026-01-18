@@ -1,0 +1,45 @@
+#What it finds
+•	Hardcoded secrets
+•	Unsafe input handling
+#SAST catches vulnerabilities before runtime.
+
+#Install pipx
+sudo apt update
+sudo apt install -y pipx
+pipx ensurepath
+#Install Semgrep using pipx
+pipx install semgrep
+#Run scan
+semgrep --config=auto app.py
+
+
+**OUTPUT will scan **
+Output- 1
+#python.flask.security.audit.directly-returned-format-string
+#	Cause:
+•	name comes directly from:
+•	request.args.get("name")
+•	User input is not sanitized
+•	Flask returns raw HTML
+#	Exploit example:
+http://localhost:5000/?name=<script>alert(1)</script>
+This triggers Cross-Site Scripting (XSS)
+
+Output-2
+#python.flask.security.audit.app-run-param-config.avoid_app_run_with_bad_host
+#Why this is risky:
+•	0.0.0.0 exposes the app to:
+o	LAN
+o	Docker bridge
+o	Kubernetes network
+•	OK for containers
+•	Dangerous for local dev without firewall
+#Security risk:
+•	Unauthorized network access
+•	Attack surface expansion
+
+**Scanned vulnerabilities**
+#Semgrep checked 291 security rules
+#Found 2 real vulnerabilities
+#No false positives here
+
