@@ -1,0 +1,7 @@
+OPA Gatekeeper
+#Example policy
+•	Block privileged containers
+#Policies prevent insecure workloads at admission time.
+
+#Install Gatekeeper
+kubectl apply -f https://raw.githubusercontent.com/open-policy-agent/gatekeeper/master/deploy/gatekeeper.yaml
