@@ -1,0 +1,19 @@
+Docker enables image-level vulnerability scanning.
+
+#create dockerfile
+vi dockerfile
+##
+FROM python:3.9-slim
+
+WORKDIR /app
+COPY app.py .
+RUN pip install flask
+
+EXPOSE 5000
+CMD ["python", "app.py"]
+##
+
+#build image
+docker build -t devsecops-app .
+#Run container
+docker run -d -p 5000:5000 devsecops-app
