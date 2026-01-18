@@ -1,0 +1,32 @@
+#create deployment file
+Vi deployment.yaml
+**
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devsecops-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: devsecops
+  template:
+    metadata:
+      labels:
+        app: devsecops
+    spec:
+      containers:
+      - name: app
+        image: devsecops-app
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 5000
+**
+
+#Apply
+kubectl apply -f deployment.yaml
+#Exposed service
+kubectl expose deployment devsecops-app --type=NodePort --port=5000
+minikube service devsecops-app
+
+
